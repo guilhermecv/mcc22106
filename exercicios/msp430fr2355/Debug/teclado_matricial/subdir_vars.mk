@@ -4,21 +4,21 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
-../displays/lcd.c 
+../teclado_matricial/teclado.c 
 
 C_DEPS += \
-./displays/lcd.d 
+./teclado_matricial/teclado.d 
 
 OBJS += \
-./displays/lcd.obj 
+./teclado_matricial/teclado.obj 
 
 OBJS__QUOTED += \
-"displays/lcd.obj" 
+"teclado_matricial/teclado.obj" 
 
 C_DEPS__QUOTED += \
-"displays/lcd.d" 
+"teclado_matricial/teclado.d" 
 
 C_SRCS__QUOTED += \
-"../displays/lcd.c" 
+"../teclado_matricial/teclado.c" 
 
 

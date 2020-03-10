@@ -7,21 +7,21 @@ CMD_SRCS += \
 ../lnk_msp430fr2355.cmd 
 
 C_SRCS += \
-../02_main_simple_display_mux.c 
+../03_main_teclado_matricial_lcd.c 
 
 C_DEPS += \
-./02_main_simple_display_mux.d 
+./03_main_teclado_matricial_lcd.d 
 
 OBJS += \
-./02_main_simple_display_mux.obj 
+./03_main_teclado_matricial_lcd.obj 
 
 OBJS__QUOTED += \
-"02_main_simple_display_mux.obj" 
+"03_main_teclado_matricial_lcd.obj" 
 
 C_DEPS__QUOTED += \
-"02_main_simple_display_mux.d" 
+"03_main_teclado_matricial_lcd.d" 
 
 C_SRCS__QUOTED += \
-"../02_main_simple_display_mux.c" 
+"../03_main_teclado_matricial_lcd.c" 
 
 

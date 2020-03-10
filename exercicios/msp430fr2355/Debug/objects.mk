@@ -4,5 +4,5 @@
 
 USER_OBJS :=
 
-LIBS := -lfrwp_init.a -llibc.a
+LIBS := -llibc.a
 

@@ -113,4 +113,5 @@ PDE_DEPS__QUOTED :=
 SUBDIRS := \
 . \
 displays \
+teclado_matricial \
 

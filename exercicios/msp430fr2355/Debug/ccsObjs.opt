@@ -1,1 +1,1 @@
-"./02_main_simple_display_mux.obj" "./displays/simple_display_mux.obj" "../lnk_msp430fr2355.cmd" -lfrwp_init.a -llibc.a 
+"./03_main_teclado_matricial_lcd.obj" "./displays/lcd.obj" "./teclado_matricial/teclado.obj" "../lnk_msp430fr2355.cmd" -llibc.a 
