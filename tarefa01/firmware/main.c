@@ -26,15 +26,19 @@ static inline void app_task(void)
         }
         else
         {
-            lcd_send_data(key, LCD_DATA);
+			if(position <= 30)
+			{
+				
+				lcd_send_data(key, LCD_DATA);
 
-            position++;
+				position++;
 
-            if(position == 15)
-            {
-                lcd_send_data(LCD_LINE_1, LCD_CMD);
-            }
-        }
+				if(position == 15)
+				{
+					lcd_send_data(LCD_LINE_1, LCD_CMD);
+				}
+			}
+		}
     }
 }
 
