@@ -1,4 +1,4 @@
-#include <msp430.h> 
+#include <msp430.h>
 #include "timer_a_display_mux.h"
 #include "encoder_irq.h"
 
@@ -10,8 +10,8 @@
 
 /**
   * @brief  Configura sistema de clock para usar o Digitally Controlled Oscillator (DCO).
-  *         Utililiza-se as calibrações internas gravadas na flash.
-  *         Exemplo baseado na documentação da Texas: msp430g2xxx3_dco_calib.c
+  *         Utililiza-se as calibraï¿½ï¿½es internas gravadas na flash.
+  *         Exemplo baseado na documentaï¿½ï¿½o da Texas: msp430g2xxx3_dco_calib.c
   *         Configura ACLK para utilizar VLO = ~10KHz
   * @param  none
   *
@@ -19,9 +19,9 @@
   */
 void init_clock_system(){
 
-    /* Configuração do MCLK em 8MHz */
+    /* Configuraï¿½ï¿½o do MCLK em 8MHz */
 
-    /* Se calibração foi apagada, para aplicação */
+    /* Se calibraï¿½ï¿½o foi apagada, para aplicaï¿½ï¿½o */
     if (CALBC1_8MHZ==0xFF)
         while(1);
 
@@ -37,7 +37,7 @@ void init_clock_system(){
 void main(void)
 {
 	WDTCTL = WDTPW | WDTHOLD;	// stop watchdog timer
-	
+
 	init_clock_system();
 
 	display_init();

@@ -13,13 +13,13 @@
 #include "lib/bits.h"
 #include "lib/gpio.h"
 
-/* Tabela de conversão em flash: Anodo comum */
+/* Tabela de conversï¿½o em flash: Anodo comum */
 #ifdef COM_ANODO
 const uint8_t convTable[] = { 0x40, 0x79, 0x24, 0x30, 0x19, 0x12, 0x02, 0x78,
                               0x00, 0x18, 0x08, 0x03, 0x46, 0x21, 0x06, 0x0E };
 #endif
 
-/* Tabela de conversão em flash: Catodo comum */
+/* Tabela de conversï¿½o em flash: Catodo comum */
 #ifdef COM_CATODO
 const uint8_t convTable[] = {0xBF, 0x86, 0xDB, 0xCF, 0xE6, 0xED, 0xFD,
         0x87, 0xFF, 0xE7, 0xF7, 0xFC, 0xB9, 0xDE, 0xF9, 0xF1};
@@ -42,11 +42,11 @@ void display_init(void)
     TA1CTL = TASSEL_2       // Clock de SMCLK (Subsystem master clock)
            | MC_2           // Contagem crescente
            | ID_1           // prescaler 8
-           | TAIE;          // habilita interrupção
+           | TAIE;          // habilita interrupï¿½ï¿½o
 
-    TA1CCTL0 = CCIE;        // IRQ por comparação
+    TA1CCTL0 = CCIE;        // IRQ por comparaï¿½ï¿½o
 
-    TA1CCR1  = 50;          // Valor de comparação
+    TA1CCR1  = 50;          // Valor de comparaï¿½ï¿½o
 
     /* Estado inicial */
     my_displays.current_data = 0;
@@ -62,7 +62,7 @@ inline void display_write(uint16_t data)
     my_displays.current_data = data;
 }
 
-/* ISR0 do Timer A: executado no evento de comparação  comparador 0 (TACCR0) */
+/* ISR0 do Timer A: executado no evento de comparaï¿½ï¿½o  comparador 0 (TACCR0) */
 #if defined(__TI_COMPILER_VERSION__) || defined(__IAR_SYSTEMS_ICC__)
 #pragma vector=TIMER1_A0_VECTOR
 __interrupt void TIMER1_A0_ISR (void)
@@ -72,7 +72,7 @@ void __attribute__ ((interrupt(TIMER0_A0_VECTOR))) Timer_A (void)
 #error Compiler not supported!
 #endif
 {
-    /* Separa os nibles dos dados em função de i */
+    /* Separa os nibles dos dados em funï¿½ï¿½o de i */
     uint8_t data = my_displays.current_data >> (my_displays.i * 4);
 
     /* Converte dados */
@@ -108,11 +108,11 @@ void __attribute__ ((interrupt(TIMER0_A1_VECTOR))) TIMER0_A1_ISR (void)
       case  TA1IV_NONE:
           break;
 
-      /* Vector  2:  TACCR1 CCIFG -> Comparação 1*/
+      /* Vector  2:  TACCR1 CCIFG -> Comparaï¿½ï¿½o 1*/
       case  TA1IV_TACCR1:
 
           break;
-      /* Vector  4:  TACCR2 CCIFG -> Comparação 2*/
+      /* Vector  4:  TACCR2 CCIFG -> Comparaï¿½ï¿½o 2*/
       case TA1IV_TACCR2:
           break;
 
