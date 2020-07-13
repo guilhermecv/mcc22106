@@ -18,4 +18,4 @@ Este trecho de código determina a frequência do PWM, utilizando como fonte de 
 void set_pwm_dt(pwm_channel_t channel, uint16_t dt);
 ```
 
-<img src="https://github.com/guilhermecv/mcc22106/edit/master/pwm/TEK0000.JPG?raw=true" alt="TEK0000" style="zoom: 67%;" />
+<img src="TEK0000.JPG" alt="TEK0000" style="zoom: 67%;" />
