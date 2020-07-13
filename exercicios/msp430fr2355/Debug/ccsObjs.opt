@@ -1,1 +1,0 @@
-"./03_main_teclado_matricial_lcd.obj" "./displays/lcd.obj" "./teclado_matricial/teclado.obj" "../lnk_msp430fr2355.cmd" -llibc.a 
