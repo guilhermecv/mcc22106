@@ -53,3 +53,13 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
+# ccstudio
+.cproject
+.project
+.ccsproject
+targetConfigs/
+*.cmd
+.settings
+.launches
+Debug
