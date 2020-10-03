@@ -51,8 +51,8 @@ void adc_init(battery_voltage_t *battery_voltage)
      */
     TB1CTL = TBSSEL_2 | MC_2 | TBCLR | ID_3;
 
-    P1SEL0 |= BIT0 + BIT1 + BIT2;
-    P1SEL1 |= BIT0 + BIT1 + BIT2;
+    P1SEL0 |=  BIT1 + BIT2;
+    P1SEL1 |=  BIT1 + BIT2;
 
     ADCCTL0 |= ADCSHT_2
             | ADCON;
@@ -61,17 +61,17 @@ void adc_init(battery_voltage_t *battery_voltage)
             | ADCSHS_2
             | ADCCONSEQ_3;
 
-    ADCCTL2 |= ADCRES_2; /* 12 bit */
+    ADCCTL2 |= ADCRES_1; /* 12 bit */
 
-    /* A0~2(EoS); Vref=1.5V */
-    ADCMCTL0 |= ADCINCH_2
-            | ADCSREF_1;
+//    /* A0~2(EoS); Vref=AVCCV */
+    ADCMCTL0 |= ADCINCH_2;
+//            | ADCSREF_0;
 
     ADCIE |= ADCIE0;
 
-    PMMCTL0_H = PMMPW_H;
-    PMMCTL2 |= INTREFEN;
-    __delay_cycles(400);
+//    PMMCTL0_H = PMMPW_H;
+//    PMMCTL2 |= INTREFEN;
+//    __delay_cycles(400);
 
     ADCCTL0 |= ADCENC;
     TB1CTL |= TBCLR;
@@ -123,7 +123,7 @@ void __attribute__ ((interrupt(ADC_VECTOR))) ADC_ISR (void)
         else
             ADCMEM0;
 
-        P6OUT ^= BIT6;
+        P4OUT ^= BIT4;
         break;
     default:
         break;

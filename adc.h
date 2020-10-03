@@ -9,9 +9,13 @@
 
 #include <stdint.h>
 
-/* Considerando ADC de 12bits */
-#define CELL_MIN_VOLTAGE            3066        /* 3,4V como tensão mínima segura */
-#define CELL_MAX_VOLTAGE            3475        /* 4,2V como tensão máxima */
+/* Considerando ADC de 12 bits */
+//#define CELL_MIN_VOLTAGE            2556        /* 3,1V como tensão mínima */
+//#define CELL_MAX_VOLTAGE            3475        /* 4,2V como tensão máxima */
+
+/* Considerando ADC de 10 bits */
+#define CELL_MIN_VOLTAGE            639
+#define CELL_MAX_VOLTAGE            868
 
 
 typedef struct battery_voltage
