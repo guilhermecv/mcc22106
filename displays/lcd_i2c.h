@@ -46,5 +46,7 @@ void lcd_set_line(lcd_line_t line);
 
 void lcd_set_backlight(uint8_t bl);
 
+void lcd_set_cursor(uint8_t col, uint8_t row);
+
 
 #endif /* LCD_I2C_H_ */

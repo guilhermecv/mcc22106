@@ -13,13 +13,12 @@
 #include "lcd_i2c.h"
 
 /* Pino do backlight no PCF8574 */
-#define BL          0x08
-
+#define BL                   0x08
 
 volatile uint8_t backlight = 0;
 
 /**
- * @brief Envia um dado estático para o display: caractere ou comando.
+ * @brief Envia um dado estÃ¡tico para o display: caractere ou comando.
  * @param data: valor do comando.
  * @param data_type: LCD_CMD para comando. LCD_DATA para caractere.
  *
@@ -29,7 +28,7 @@ void lcd_send_data(uint8_t data, lcd_data_t data_type)
 {
     /**
      TODO:
-        Otimizar a função
+        Otimizar a funÃ§Ã£o
         Melhorar o controle do backlight
      */
     if (data_type == LCD_DATA)
@@ -115,7 +114,7 @@ void lcd_i2c_init()
     /* cursor piscante */
     lcd_send_data(0x0F, LCD_CMD);
 #else
-    /* Mensagem aparente e cursor inativo não piscante
+    /* Mensagem aparente e cursor inativo nÃ£o piscante
      * Outros modos podem ser consultados no datasheet */
     lcd_send_data(0x0C, LCD_CMD);
 #endif
@@ -125,11 +124,11 @@ void lcd_i2c_init()
 
 /**
  TODO:
-    Possibilitar a escolha da posição de escrita no display
+    Possibilitar a escolha da posiÃ§Ã£o de escrita no display
  */
 
 /**
- * @brief Escreve um string estática no LCD.
+ * @brief Escreve um string estÃ¡tica no LCD.
  * @param c: ponteiro para a string em RAM
  *
  * @retval Nenhum
@@ -151,7 +150,7 @@ void lcd_write_char(const char c)
 }
 
 /**
- * @brief  Limpa o display e retorna o cursor para a posição inicial
+ * @brief  Limpa o display e retorna o cursor para a posiÃ§Ã£o inicial
  * @param  None
  * @retval None
  */
@@ -170,9 +169,31 @@ void lcd_set_line(lcd_line_t line)
     lcd_send_data(line, LCD_CMD);
 }
 
+
 /**
- * @brief  Escreve um número inteiro no display
- * @param  num: valor numérico
+    TODO:
+        Validar a funÃ§Ã£o testando no display
+        Remover lcd_set_line()
+*/
+
+/**
+ * @brief  Define a posiÃ§Ã£o de escrita do display
+ * @param  col: coluna do display
+ * @param  row: linha do display
+ *
+ * @retval none
+ */
+void lcd_set_cursor(uint8_t col, uint8_t row)
+{
+    uint8_t row_offset[] = {0x00, 0x40};
+
+    /* ref: https://github.com/fdebrabander/Arduino-LiquidCrystal-I2C-library */
+    lcd_send_data(0x80 | (col + row_offsets[row]), LCD_CMD);
+}
+
+/**
+ * @brief  Escreve um nÃºmero inteiro no display
+ * @param  num: valor numÃ©rico
  * @retval None
  */
 void lcd_write_uint(uint16_t num)
@@ -182,7 +203,11 @@ void lcd_write_uint(uint16_t num)
     lcd_write_string(str);
 }
 
-
+/**
+ * @brief  Ativa ou desativa o backlight
+ * @param  bl: 0 para desativar, >0 para ativar
+ * @retval none
+ */
 void lcd_set_backlight(uint8_t bl)
 {
     if(bl)
